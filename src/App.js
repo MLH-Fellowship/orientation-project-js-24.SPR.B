@@ -1,6 +1,17 @@
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useNavigate,
+} from "react-router-dom";
+
+import { AddEducation, ShowEducation } from "./pages";
+import { ContextProvider } from "./provider/ContextProvider";
+
 import "./App.css";
 
-function App() {
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="App">
       <h1>Resume Builder</h1>
@@ -12,8 +23,10 @@ function App() {
       </div>
       <div className="resumeSection">
         <h2>Education</h2>
-        <p>Education Placeholder</p>
-        <button>Add Education</button>
+        <ShowEducation />
+        <button onClick={() => navigate("/education/add")}>
+          Add Education
+        </button>
         <br></br>
       </div>
       <div className="resumeSection">
@@ -25,6 +38,31 @@ function App() {
       <br></br>
       <button>Export</button>
     </div>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+
+  {
+    path: "/education",
+    children: [
+      {
+        path: "add",
+        element: <AddEducation />,
+      },
+    ],
+  },
+]);
+
+function App() {
+  return (
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   );
 }
 

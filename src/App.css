@@ -38,10 +38,16 @@ body {
   text-align: left;
   padding: 0px 20px;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .sectionList .list {
   margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .sectionList .content {
@@ -74,6 +80,20 @@ body {
   width: 50px;
   height: 50px;
   margin-right: 10px;
+}
+
+.sectionList .reorderIcon {
+  align-self: center;
+  margin-right: 10px;
+}
+
+.sectionList .draggedItem {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  border-style: dashed;
+  border-radius: 4px;
+  /* padding: 10px; */
 }
 
 .error {

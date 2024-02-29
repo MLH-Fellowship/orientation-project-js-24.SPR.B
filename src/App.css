@@ -49,6 +49,10 @@ body {
   justify-content: space-between;
 }
 
+.sectionList .imageDescWrap {
+  display: flex;
+}
+
 .sectionList .title {
   font-weight: bold;
 }
@@ -69,7 +73,14 @@ body {
 .sectionList .logo {
   width: 50px;
   height: 50px;
-  margin-bottom: 4px;
+  margin-right: 10px;
+}
+
+.error {
+  display: block;
+  font-size: 14px;
+  margin: 20px;
+  color: #ff0000;
 }
 
 input[type="text"],

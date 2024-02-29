@@ -4,7 +4,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { AddEducation, ShowEducation } from "./pages";
+import { AddEducation, EditEducation, ShowEducation } from "./pages";
 import { ContextProvider } from "./provider/ContextProvider";
 
 import "./App.css";
@@ -53,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "add",
         element: <AddEducation />,
+      },
+      {
+        path: "edit/:id",
+        element: <EditEducation />,
       },
     ],
   },

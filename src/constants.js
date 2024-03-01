@@ -22,6 +22,12 @@ export const educationFormList = [
     placeholder: "86",
   },
   {
+    id: "desc",
+    label: "Description",
+    placeholder: "Enter a brief description of your educational experience...",
+    elementType: "textarea",
+  },
+  {
     id: "startDate",
     label: "Start Date",
     type: "date",

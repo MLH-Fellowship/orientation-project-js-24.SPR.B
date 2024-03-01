@@ -1,4 +1,4 @@
-export default function Input({
+export function Input({
   label,
   id,
   type = "text",
@@ -18,6 +18,25 @@ export default function Input({
         onChange={handleChange}
         minLength={2}
         required={true}
+      />
+    </div>
+  );
+}
+
+export function Textarea({ label, id, value, placeholder, handleChange }) {
+  return (
+    <div className="inputContent">
+      <label htmlFor={id}>{label}</label>
+      <textarea
+        id={id}
+        name={id}
+        value={value}
+        placeholder={placeholder}
+        onChange={handleChange}
+        maxLength={200}
+        rows={4}
+        wrap="hard"
+        required
       />
     </div>
   );

@@ -96,10 +96,57 @@ body {
   /* padding: 10px; */
 }
 
+.generateSuggestion {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  text-align: left;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.generateSuggestion .heading {
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.generateSuggestion .generateButton {
+  margin-left: 10px;
+  background: #1d539f;
+  color: #fff;
+  padding: 5px;
+}
+
+.generateSuggestion .clearButton {
+  margin-left: 10px;
+  background: #ff0000;
+  color: #fff;
+  padding: 5px;
+}
+
+.generateSuggestion .list {
+  padding: 10px 10px 10px 30px;
+  margin: 0;
+}
+
+.generateSuggestion .item {
+  text-align: left;
+  margin-bottom: 10px;
+  color: #666;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.generateSuggestion .item:hover {
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.16);
+}
+
 .error {
   display: block;
   font-size: 14px;
-  margin: 20px;
+  padding: 20px;
   color: #ff0000;
 }
 

@@ -1,1 +1,2 @@
-export { default as Input } from "./Input";
+export { Input, Textarea } from "./Input";
+export { default as AiTextSuggestion } from "./AiTextSuggestion";

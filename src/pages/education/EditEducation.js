@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useAppContext } from "../../provider/ContextProvider";
-import { Input } from "../../components";
+import { AiTextSuggestion, Input, Textarea } from "../../components";
 import { educationFormList } from "../../constants";
 
 export default function EditEducation() {
@@ -27,6 +27,10 @@ export default function EditEducation() {
 
   const handleChange = (e) => {
     setEducation((prevS) => ({ ...prevS, [e.target.name]: e.target.value }));
+  };
+
+  const handlePopulateDesc = (populatedDesc) => {
+    setEducation((prevS) => ({ ...prevS, desc: populatedDesc }));
   };
 
   const handleEdit = async (e) => {
@@ -69,15 +73,33 @@ export default function EditEducation() {
       <div className="resumeSection">
         {education ? (
           <form className="form" onSubmit={handleEdit}>
-            {educationFormList.map((item) => (
-              <Input
-                key={item.id}
-                {...item}
-                value={education?.[item.id] || ""}
-                handleChange={handleChange}
-                required
-              />
-            ))}
+            {educationFormList.map((item) => {
+              if (item.elementType === "textarea") {
+                return (
+                  <Fragment key={item.id}>
+                    <Textarea
+                      {...item}
+                      value={education?.[item.id] || ""}
+                      handleChange={handleChange}
+                    />
+                    <AiTextSuggestion
+                      prompt={education?.desc || ""}
+                      handlePopulateDesc={handlePopulateDesc}
+                    />
+                  </Fragment>
+                );
+              }
+
+              return (
+                <Input
+                  key={item.id}
+                  {...item}
+                  value={education?.[item.id] || ""}
+                  handleChange={handleChange}
+                />
+              );
+            })}
+
             <button type="submit">
               {pending ? "Editing ..." : "Edit Education"}
             </button>

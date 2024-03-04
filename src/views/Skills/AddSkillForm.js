@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AddSkillForm.css";
 
 function AddSkillForm({ onSubmit }) {
   const [name, setName] = useState("");
@@ -37,26 +38,31 @@ function AddSkillForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
       <input
+        className="form-input"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Skill Name"
         required
       />
       <input
+        className="form-input"
         value={proficiency}
         onChange={(e) => setProficiency(e.target.value)}
         placeholder="Proficiency"
         required
       />
       <input
+        className="form-input"
         value={logo}
         onChange={(e) => setLogo(e.target.value)}
         placeholder="Logo URL"
         required
       />
-      <button type="submit">Add Skill</button>
+      <button className="form-button" type="submit">
+        Add Skill
+      </button>
     </form>
   );
 }

@@ -1,13 +1,25 @@
+import React, { useState } from "react";
+import Modal from "./components/Modal/Modal";
+import AddExperienceForm from "./views/Experience/AddExperienceForm";
 import "./App.css";
 
 function App() {
+  const [showExperienceModal, setShowExperienceModal] = useState(false);
+
   return (
     <div className="App">
       <h1>Resume Builder</h1>
       <div className="resumeSection">
         <h2>Experience</h2>
-        <p>Experience Placeholder</p>
-        <button>Add Experience</button>
+        <button onClick={() => setShowExperienceModal(true)}>
+          Add Experience
+        </button>
+        <Modal
+          isOpen={showExperienceModal}
+          onClose={() => setShowExperienceModal(false)}
+        >
+          <AddExperienceForm />
+        </Modal>
         <br></br>
       </div>
       <div className="resumeSection">
